@@ -1,0 +1,23 @@
+---
+ja:
+  Books: '書籍一覧'
+  Title: 'タイトル'
+  title: 'タイトル'
+  Memo: 'メモ'
+  memo: 'メモ'
+  Author: '著者'
+  author: '著者'
+  Picture: '写真'
+  picture: '写真'
+  Show: '詳細'
+  Edit: '編集'
+  Destroy: '削除'
+  New Book: '新規追加'
+  Back: '戻る'
+  Editing Book: '編集'
+
+  Book was successfully created: '正常に作成されました'
+  Book was successfully updated: '正常に更新されました'
+  Book was successfully destroyed: '正常に削除されました'
+
+  Are you sure?: 'ほんとに良いですか？'
