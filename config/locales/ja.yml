@@ -16,8 +16,8 @@ ja:
         back: '戻る'
         editingbook: '編集'
 
-  Created successfully: '正常に作成されました'
-  Updated successfully: '正常に更新されました'
-  Destroyed successfully: '正常に削除されました'
+  created: '正常に作成されました'
+  updated: '正常に更新されました'
+  destroyed: '正常に削除されました'
 
   confirm message: 'ほんとに良いですか？'
