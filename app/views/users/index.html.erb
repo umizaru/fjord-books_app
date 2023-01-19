@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>ユーザ一覧（あとで翻訳入れる）</h1>
+
+</table>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h6>ページネーション入れる</h6>
