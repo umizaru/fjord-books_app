@@ -30,4 +30,24 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      book: 'Books'
+    attributes:
+      book:
+        title: 'Title'
+        memo: 'Memo'
+        author: 'Author'
+        picture: 'Picture'
+        show: 'detail'
+        edit: 'edit'
+        destroy: 'delete'
+        newbook: 'New Book'
+        back: 'back'
+        editingbook: 'Editing Book'
+
+  created: '%{item} was successfully created.'
+  updated: '%{item} was successfully updated.'
+  destroyed: '%{item} was successfully deleted.'
+
+  confirm message: 'Are you sure?'

@@ -1,0 +1,23 @@
+---
+ja:
+  activerecord:
+    models:
+      book: '書籍一覧'
+    attributes:
+      book:
+        title: 'タイトル'
+        memo: 'メモ'
+        author: '著者'
+        picture: '写真'
+        show: '詳細'
+        edit: '編集'
+        destroy: '削除'
+        newbook: '新規追加'
+        back: '戻る'
+        editingbook: '編集'
+
+  created: '正常に作成されました'
+  updated: '正常に更新されました'
+  destroyed: '正常に削除されました'
+
+  confirm message: 'ほんとに良いですか？'
