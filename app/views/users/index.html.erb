@@ -6,11 +6,14 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.email %></td>
-        <td><%= link_to '編集', edit_user_registration_path %><br></td>
+        <td><%= user.name %></td>
+        <td><%= link_to '詳細', user_path(user) %><br></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <%= paginate @users %>
+
+<%= link_to 'アカウント情報の編集', edit_user_registration_path(@user) %><br>
+<%= link_to '本一覧', books_path %>
