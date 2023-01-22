@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>ユーザ一覧（あとで翻訳入れる）</h1>
+<h1><%= t("views.users.list") %></h1>
 
 </table>
   <tbody>
@@ -15,5 +15,5 @@
 
 <%= paginate @users %>
 
-<%= link_to 'アカウント情報の編集', edit_user_registration_path(@user) %><br>
-<%= link_to '本一覧', books_path %>
+<%= link_to t("views.users.edit_profile"), edit_user_registration_path(@user) %><br>
+<%= link_to t("views.books.list"), books_path %>
