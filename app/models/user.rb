@@ -31,5 +31,4 @@ class User < ApplicationRecord
   def unfollow(other_user_id)
     followers.destroy(following_id: other_user_id)
   end
-
 end
