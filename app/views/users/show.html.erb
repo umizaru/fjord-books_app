@@ -38,7 +38,7 @@
     <% if current_user.following?(@user) %>
       <%= button_to t('views.follow.unfollow'), relationship_path, method: "delete" %>
     <% else %>
-      <%= form_for(@user.followers.build) do |f| %>
+      <%= form_with(model: @user.followers.build, local: true) do |f| %>
         <%= hidden_field_tag :follow_id, @user.id %>
         <%= f.submit t('views.follow.following') %>
       <% end %>
