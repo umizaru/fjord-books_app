@@ -1,0 +1,21 @@
+<p>
+  <b><%= User.human_attribute_name(:email) %>:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b><%= User.human_attribute_name(:postal_code) %>:</b>
+  <%= @user.postal_code %>
+</p>
+
+<p>
+  <b><%= User.human_attribute_name(:address) %>:</b>
+  <%= @user.address %>
+</p>
+
+<p>
+  <b><%= User.human_attribute_name(:introduction) %>:</b>
+  <%= @user.introduction %>
+</p>
+
+<%= link_to t('views.common.back'), users_path %>

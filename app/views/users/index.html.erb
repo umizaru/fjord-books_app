@@ -1,0 +1,17 @@
+<h1><%= t("views.users.list") %></h1>
+
+</table>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= link_to t("views.common.show"), user_path(user) %><br></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @users %>
+
+<%= link_to t("views.users.edit_profile"), edit_user_registration_path(@user) %><br>
+<%= link_to t("views.books.list"), books_path %>
