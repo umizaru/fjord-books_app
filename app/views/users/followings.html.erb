@@ -1,12 +1,5 @@
 <h1><%= t('views.follow.list_of_following') %></h1>
 
-<table>
-<% @followings.each do |user| %>
-<tr>
-<td><%= link_to user.name, user_path(user) %></td>
-<td><%= user.self_introduction %></td>
-</tr>
-<% end %>
-</table>
+<%= render partial: "form", locals: { follow_users: @followings } %>
 
 <%= link_to t('views.common.back'), user_path %>
