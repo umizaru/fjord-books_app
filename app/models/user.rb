@@ -21,15 +21,15 @@ class User < ApplicationRecord
   has_many :following_users, through: :followings, source: :follower
   has_many :follower_users, through: :followers, source: :following
 
-  def follow(other_user_id)
-    followings.create(follower_id: other_user_id)
+  def follow(other_user)
+    followings.create(follower_id: other_user.id)
   end
 
   def following?(other_user)
     following_users.include?(other_user)
   end
 
-  def unfollow(other_user_id)
-    followings.destroy(following_id: other_user_id)
+  def unfollow(other_user)
+    followings.destroy(following_id: other_user.id)
   end
 end
