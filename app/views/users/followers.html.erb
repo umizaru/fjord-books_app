@@ -1,0 +1,5 @@
+<h1><%= t('views.follow.list_of_follower') %></h1>
+
+<%= render partial: "form", locals: { follow_users: @followers } %>
+
+<%= link_to t('views.common.back'), user_path %>

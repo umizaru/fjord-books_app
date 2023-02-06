@@ -33,6 +33,24 @@
   <% end %>
 </p>
 
+<p>
+  <% unless @user == current_user %>
+    <% if current_user.following?(@user) %>
+      <%= button_to t('views.follow.unfollow'), relationship_path, method: "delete" %>
+    <% else %>
+      <%= form_with(model: @user.followers.build, local: true) do |f| %>
+        <%= hidden_field_tag :follow_id, @user.id %>
+        <%= f.submit t('views.follow.following') %>
+      <% end %>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <%= link_to "#{@user.followings.count}#{t('views.follow.following')}", followings_user_path %>
+  <%= link_to "#{@user.followers.count}#{t('views.follow.follower')}", followers_user_path %>
+</p>
+
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% end %>

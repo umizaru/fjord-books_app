@@ -1,0 +1,8 @@
+<table>
+<% follow_users.each do |user| %>
+<tr>
+<td><%= link_to user.name, user_path(user) %></td>
+<td><%= user.self_introduction %></td>
+</tr>
+<% end %>
+</table>
