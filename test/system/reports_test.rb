@@ -2,7 +2,7 @@
 
 require 'application_system_test_case'
 
-class BooksTest < ApplicationSystemTestCase
+class ReportsTest < ApplicationSystemTestCase
   setup do
     @book = books(:one)
 
@@ -14,10 +14,10 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'visiting the index' do
     visit books_url
-    assert_selector 'h1', text: '本'
+    assert_selector 'h1', text: '日報'
   end
 
-  test 'creating a Book' do
+  test 'creating a Report' do
     visit books_url
     click_on '新規作成'
 
@@ -29,7 +29,7 @@ class BooksTest < ApplicationSystemTestCase
     click_on '戻る'
   end
 
-  test 'updating a Book' do
+  test 'updating a Report' do
     visit books_url
     click_on '編集', match: :first
 
@@ -41,12 +41,11 @@ class BooksTest < ApplicationSystemTestCase
     click_on '戻る'
   end
 
-  test 'destroying a Book' do
+  test 'destroying a Report' do
     visit books_url
     page.accept_confirm do
       click_on '削除', match: :first
     end
-
     assert_text '本が削除されました'
   end
 end
