@@ -3,14 +3,14 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
-
-
-  test "日報を編集できるかどうか" do
-    assert true
+  test "editable?" do
+    report = Report.create!(user_id: User.first.id, title: 'サンプルな件名', content: 'サンプルな内容')
+    user = User.first
+    assert report.editable?(user)
   end
 
-  test "正常な時刻かどうか" do
-    assert true
+  test "created_on?" do
+    report = Report.create!(user_id: User.first.id, title: 'サンプルな件名', content: 'サンプルな内容')
+    assert_equal report.created_at.to_date, report.created_on
   end
-
 end
