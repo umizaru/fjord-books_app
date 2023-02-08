@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @book = books(:one)
+    @report = reports(:one)
 
     visit root_url
     fill_in 'Eメール', with: 'alice@example.com'
@@ -13,16 +13,16 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test 'visiting the index' do
-    visit books_url
+    visit reports_url
     assert_selector 'h1', text: '日報'
   end
 
   test 'creating a Report' do
-    visit books_url
+    visit reports_url
     click_on '新規作成'
 
-    fill_in 'メモ', with: @book.memo
-    fill_in 'タイトル', with: @book.title
+    fill_in 'メモ', with: @report.memo
+    fill_in 'タイトル', with: @report.title
     click_on '登録する'
 
     assert_text '本が作成されました。'
@@ -30,11 +30,11 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test 'updating a Report' do
-    visit books_url
+    visit reports_url
     click_on '編集', match: :first
 
-    fill_in 'メモ', with: @book.memo
-    fill_in 'タイトル', with: @book.title
+    fill_in 'メモ', with: @report.memo
+    fill_in 'タイトル', with: @report.title
     click_on '更新する'
 
     assert_text '本が更新されました。'
@@ -42,7 +42,7 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test 'destroying a Report' do
-    visit books_url
+    visit reports_url
     page.accept_confirm do
       click_on '削除', match: :first
     end
