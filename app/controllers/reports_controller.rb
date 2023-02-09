@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[show edit update destroy]
   before_action :correct_user, only: %i[edit update destroy]
 
   # GET /reports
@@ -54,11 +53,6 @@ class ReportsController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_report
-    @report = Report.find(params[:id])
-  end
 
   # Only allow a list of trusted parameters through.
   def report_params
