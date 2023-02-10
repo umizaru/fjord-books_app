@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
-  before_action :correct_user, only: %i[edit update destroy]
+  before_action :current_report, only: %i[edit update destroy]
 
   # GET /reports
   def index
@@ -9,7 +9,9 @@ class ReportsController < ApplicationController
   end
 
   # GET /reports/1
-  def show; end
+  def show
+    @report = Report.find(params[:id])
+  end
 
   # GET /reports/new
   def new
@@ -59,7 +61,7 @@ class ReportsController < ApplicationController
     params.require(:report).permit(:title, :memo)
   end
 
-  def correct_user
+  def current_report
     @report = current_user.reports.find_by(id: params[:id])
     redirect_to reports_path if @report.nil?
   end
