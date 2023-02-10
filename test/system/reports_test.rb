@@ -4,6 +4,7 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
+    User.new(email: 'foo@example.com', name: 'bar')
     @report = reports(:one)
 
     visit root_url
@@ -21,8 +22,8 @@ class ReportsTest < ApplicationSystemTestCase
     visit reports_url
     click_on '新規作成'
 
-    fill_in 'メモ', with: @report.memo
     fill_in 'タイトル', with: @report.title
+    fill_in '内容', with: @report.content
     click_on '登録する'
 
     assert_text '日報が作成されました。'
@@ -33,8 +34,8 @@ class ReportsTest < ApplicationSystemTestCase
     visit reports_url
     click_on '編集', match: :first
 
-    fill_in 'メモ', with: @report.memo
     fill_in 'タイトル', with: @report.title
+    fill_in '内容', with: @report.content
     click_on '更新する'
 
     assert_text '日報が更新されました。'

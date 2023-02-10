@@ -3,11 +3,6 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # def setup
-  #   @alice = User.create!(email: 'alice@example.com', password: 'password')
-  #   @bob = User.create!(email: 'bob@example.com', password: 'password')
-  # end
-
   test 'following?' do
     me = User.create!(email: 'me@example.com', password: 'password')
     she = User.create!(email: 'she@example.com', password: 'password')
@@ -43,12 +38,11 @@ class UserTest < ActiveSupport::TestCase
     assert initial_count - 1, me.active_relationships.count
   end
 
-  test "name_or_email" do
+  test 'name_or_email' do
     user = User.new(email: 'foo@example.com', name: '')
     assert_equal 'foo@example.com', user.name_or_email
 
     user.name = 'foo bar'
     assert_equal 'foo bar', user.name_or_email
   end
-
 end
