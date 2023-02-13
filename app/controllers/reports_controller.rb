@@ -24,8 +24,6 @@ class ReportsController < ApplicationController
   # POST /reports
   def create
     @report = current_user.reports.build(report_params)
-
-    respond_to do |format|
       if @report.save
         format.html { redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: '日報') }
       else
@@ -36,7 +34,6 @@ class ReportsController < ApplicationController
 
   # PATCH/PUT /reports/1
   def update
-    respond_to do |format|
       if @report.update(report_params)
         format.html { redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: '日報') }
       else
@@ -49,8 +46,7 @@ class ReportsController < ApplicationController
   def destroy
     @report.destroy
 
-    respond_to do |format|
-      format.html { redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: '日報') }
+    format.html { redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: '日報') }
     end
   end
 

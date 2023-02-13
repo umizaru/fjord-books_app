@@ -7,4 +7,9 @@ class CreateReports < ActiveRecord::Migration[6.1]
       t.timestamps
     end
   end
+
+  def change
+    add_column :reports, :user_id, :integer
+  end
+
 end
