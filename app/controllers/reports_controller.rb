@@ -25,29 +25,25 @@ class ReportsController < ApplicationController
   def create
     @report = current_user.reports.build(report_params)
       if @report.save
-        format.html { redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: '日報') }
+        redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
       else
-        format.html { render :new, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /reports/1
   def update
       if @report.update(report_params)
-        format.html { redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: '日報') }
+        redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   # DELETE /reports/1
   def destroy
     @report.destroy
-
-    format.html { redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: '日報') }
-    end
+    redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
 
   private
