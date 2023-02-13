@@ -22,20 +22,20 @@ class BooksController < ApplicationController
   # POST /books
   def create
     @book = Book.new(book_params)
-      if @book.save
-        redirect_to @book, notice: t('controllers.common.notice_create', name: Book.model_name.human)
-      else
-        render :new
-      end
+    if @book.save
+      redirect_to @book, notice: t('controllers.common.notice_create', name: Book.model_name.human)
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /books/1
   def update
-      if @book.update(book_params)
-        redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human)
-      else
-        render :edit
-      end
+    if @book.update(book_params)
+      redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human)
+    else
+      render :edit
+    end
   end
 
   # DELETE /books/1

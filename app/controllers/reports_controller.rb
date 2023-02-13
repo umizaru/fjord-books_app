@@ -24,20 +24,20 @@ class ReportsController < ApplicationController
   # POST /reports
   def create
     @report = current_user.reports.build(report_params)
-      if @report.save
-        redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
-      else
-        render :new
-      end
+    if @report.save
+      redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /reports/1
   def update
-      if @report.update(report_params)
-        redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
-      else
-        render :edit
-      end
+    if @report.update(report_params)
+      redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+    else
+      render :edit
+    end
   end
 
   # DELETE /reports/1
