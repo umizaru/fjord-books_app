@@ -1,0 +1,14 @@
+<h2><%= Report.model_name.human %></h2>
+
+<p>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:memo) %>:</strong>
+  <%= @report.memo %>
+</p>
+
+<%= render partial: "comments/form", locals: { commentable: @report } %>
+<%= link_to t('views.common.back'), reports_path %>

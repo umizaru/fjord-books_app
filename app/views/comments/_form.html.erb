@@ -1,0 +1,27 @@
+<h2><%= Comment.model_name.human %></h2>
+<% commentable.comments.each do |comment| %>
+<p>
+  <% if comment.user.name.nil? %>
+    <strong><%= User.human_attribute_name(:email) %>:</strong>
+    <%= comment.user.email %>
+  <% else %>
+    <strong><%= User.human_attribute_name(:name) %>:</strong>
+    <%= comment.user.name %>
+  <% end %>
+  <strong><%= Comment.human_attribute_name(:content) %>:</strong>
+  <%= comment.content %>
+  <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
+  <%= comment.created_at.to_s(:datetime_jp) %>
+</p>
+<% end %>
+
+<%= form_with(model: [commentable, Comment.new]) do |form| %>
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
