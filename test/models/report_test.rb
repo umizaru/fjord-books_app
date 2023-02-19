@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'test_helper'
+require 'date'
 
 class ReportTest < ActiveSupport::TestCase
   test 'editable?' do
@@ -11,6 +12,6 @@ class ReportTest < ActiveSupport::TestCase
 
   test 'created_on?' do
     report = Report.create!(user_id: users(:alice).id, title: 'サンプルな件名', content: 'サンプルな内容')
-    assert_equal report.created_at.to_date, report.created_on
+    assert_equal Date.today, report.created_on
   end
 end

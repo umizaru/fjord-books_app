@@ -3,45 +3,41 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test 'following?' do
-    me = User.create!(email: 'me@example.com', password: 'password')
-    she = User.create!(email: 'she@example.com', password: 'password')
 
-    me.follow(she)
-    assert me.following?(she)
+  test 'following?' do
+    alice = users(:alice)
+    bob = users(:bob)
+    alice.follow(bob)
+    assert alice.following?(bob)
   end
 
   test 'followed_by?' do
-    me = User.create!(email: 'me@example.com', password: 'password')
-    she = User.create!(email: 'she@example.com', password: 'password')
-
-    she.follow(me)
-    assert me.followed_by?(she)
+    alice = users(:alice)
+    bob = users(:bob)
+    bob.follow(alice)
+    assert alice.followed_by?(bob)
   end
 
   test 'follow' do
-    me = User.create!(email: 'me@example.com', password: 'password')
-    she = User.create!(email: 'she@example.com', password: 'password')
-
-    initial_count = me.active_relationships.count
-    me.follow(she)
-    assert initial_count + 1, me.active_relationships.count
+    alice = users(:alice)
+    bob = users(:bob)
+    initial_count = alice.active_relationships.count
+    alice.follow(bob)
+    assert initial_count + 1, alice.active_relationships.count
   end
 
   test 'unfollow' do
-    me = User.create!(email: 'me@example.com', password: 'password')
-    she = User.create!(email: 'she@example.com', password: 'password')
-
-    me.follow(she)
-    initial_count = me.active_relationships.count
-    me.unfollow(she)
-    assert initial_count - 1, me.active_relationships.count
+    alice = users(:alice)
+    bob = users(:bob)
+    alice.follow(bob)
+    initial_count = alice.active_relationships.count
+    alice.unfollow(bob)
+    assert initial_count - 1, alice.active_relationships.count
   end
 
   test 'name_or_email' do
     user = User.new(email: 'foo@example.com', name: '')
     assert_equal 'foo@example.com', user.name_or_email
-
     user.name = 'foo bar'
     assert_equal 'foo bar', user.name_or_email
   end
