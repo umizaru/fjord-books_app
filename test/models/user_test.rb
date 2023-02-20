@@ -3,7 +3,6 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-
   test 'following?' do
     alice = users(:alice)
     bob = users(:bob)

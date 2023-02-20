@@ -8,7 +8,7 @@ class Report < ApplicationRecord
   validates :content, presence: true
 
   def editable?(target_user)
-    user_id == target_user.id
+    user == target_user
   end
 
   def created_on

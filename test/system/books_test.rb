@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    @book = books(:one)
+    @book = books(:japanese_book)
 
     visit root_url
     fill_in 'Eメール', with: 'alice@example.com'
@@ -21,8 +21,8 @@ class BooksTest < ApplicationSystemTestCase
     visit books_url
     click_on '新規作成'
 
-    fill_in 'メモ', with: @book.memo
-    fill_in 'タイトル', with: @book.title
+    fill_in 'メモ', with: 'ウィンガーディアムレビオーサ'
+    fill_in 'タイトル', with: 'ハリー・ポッターと賢者の石'
     click_on '登録する'
 
     assert_text '本が作成されました。'
@@ -33,8 +33,8 @@ class BooksTest < ApplicationSystemTestCase
     visit books_url
     click_on '編集', match: :first
 
-    fill_in 'メモ', with: @book.memo
-    fill_in 'タイトル', with: @book.title
+    fill_in 'メモ', with: 'エクスペクトパトローナム'
+    fill_in 'タイトル', with: 'ハリー・ポッターと秘密の部屋'
     click_on '更新する'
 
     assert_text '本が更新されました。'

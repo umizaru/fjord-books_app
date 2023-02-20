@@ -12,6 +12,6 @@ class ReportTest < ActiveSupport::TestCase
 
   test 'created_on?' do
     report = Report.create!(user_id: users(:alice).id, title: 'サンプルな件名', content: 'サンプルな内容')
-    assert_equal Date.today, report.created_on
+    assert_equal Time.zone.today, report.created_on
   end
 end
