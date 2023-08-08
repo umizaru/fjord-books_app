@@ -259,4 +259,4 @@ ja:
   devise:
     registrations:
       edit:
-        title: "アカウント編集"
+        title: "アカウント"
